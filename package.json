@@ -1,0 +1,65 @@
+{
+  "name": "babel-plugin-spreadelement-require",
+  "version": "0.1.0",
+  "description": "A babel plugin to transform from {...require('xxx')} to const xxx = require('xxx');{ ...xxx }.",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "babel src -d lib",
+    "lint": "eslint --ignore-path .gitignore src/ test/index.js",
+    "test": "npm run build && jest",
+    "cov": "npm run build && jest --coverage | coveralls"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.test.js"
+    ],
+    "concurrency": 5
+  },
+  "nyc": {
+    "exclude": [
+      "node_modules",
+      "**/tests"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/offgravity/babel-plugin-spreadelement-require.git"
+  },
+  "keywords": [
+    "babel",
+    "plugin",
+    "nodejs",
+    "shim"
+  ],
+  "author": "pigcan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/offgravity/babel-plugin-spreadelement-require/issues"
+  },
+  "homepage": "https://github.com/offgravity/babel-plugin-spreadelement-require#readme",
+  "dependencies": {
+    "@babel/code-frame": "^7.0.0",
+    "@babel/generator": "^7.3.2",
+    "@babel/parser": "^7.3.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/template": "^7.2.2",
+    "@babel/traverse": "^7.2.3",
+    "@babel/types": "^7.3.2",
+    "nodejs-libs-browser": "^0.4.0",
+    "read-pkg-up": "^4.0.0",
+    "slash": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/helper-plugin-test-runner": "^7.1.0",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "jest": "^24.1.0"
+  }
+}
